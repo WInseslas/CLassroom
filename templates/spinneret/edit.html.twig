@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Spinneret{% endblock %}
+
+{% block body %}
+    <h1>Edit Spinneret</h1>
+
+    {{ include('spinneret/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_spinneret_index') }}">back to list</a>
+
+    {{ include('spinneret/_delete_form.html.twig') }}
+{% endblock %}

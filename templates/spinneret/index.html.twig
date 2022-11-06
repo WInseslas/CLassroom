@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Spinneret index{% endblock %}
+
+{% block body %}
+    <h1>Spinneret index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for spinneret in spinnerets %}
+            <tr>
+                <td>{{ spinneret.id }}</td>
+                <td>{{ spinneret.name }}</td>
+                <td>{{ spinneret.course }}</td>
+                <td>
+                    <a href="{{ path('app_spinneret_show', {'id': spinneret.id}) }}">show</a>
+                    <a href="{{ path('app_spinneret_edit', {'id': spinneret.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_spinneret_new') }}">Create new</a>
+{% endblock %}
